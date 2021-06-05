@@ -40,16 +40,24 @@ SECURE_HSTS_PRELOAD = os.getenv('DEV_ENV', '') == 'False'
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-Party Apps
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
-    'apps.calendar'
+
+    # Project Apps
+    'apps.administration',
+    'apps.calendar',
+    'apps.core',
+    'apps.user',
 ]
 
 MIDDLEWARE = [

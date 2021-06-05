@@ -11,7 +11,7 @@ from rhs_icc_dashboard.permissions import IsGet
 from .serializers import *
 
 class EventsListView(APIView):
-    permission_classes = [IsGet]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         """
@@ -20,7 +20,7 @@ class EventsListView(APIView):
         events = Event.objects.all()
 
         serializer = EventSerializer(events, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         """
